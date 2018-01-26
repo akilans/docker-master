@@ -31,7 +31,7 @@ $result = $conn->query($sql);
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <h1>Team</h1>
+	      <h1>COE - Team</h1>
 	    </div>
 	  </div>
 	</nav>
