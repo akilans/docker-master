@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  web:
+    image: akilan/employee-app-php:1
+    ports:
+      - '80:80'
+    environment:
+      - DB_HOST=mysql-db
+      - DB_USER=root
+      - DB_PWD=akilan@123
+      - DB_NAME=employee
+
+  mysql-db:
+    image: akilan/mysql-employee
+    environment:
+      - MYSQL_ROOT_PASSWORD=akilan@123
+    volumes:
+      - db_volume:/var/lib/mysql
+
+volumes:
+  - db_volume:
+  
