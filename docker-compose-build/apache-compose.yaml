@@ -1,6 +1,11 @@
+# Run "docker-compose -f apache-compose.yaml up --build"
+
 version: '3.4'
 
-services:
+services:  #Grouping Containers as a Service
+  
+  #php container creation
+
   web:
     build: .
     image: akilan/php-employee:1
@@ -12,12 +17,17 @@ services:
       - DB_PWD=akilan@123
       - DB_NAME=employee
 
+  #Mysql container creation
+
   mysql-db:
-    image: akilan/mysql-employee
+    build:
+      context: .
+      dockerfile: Dockerfile-mysql
+    image: akilan/mysql-employee:1
     environment:
-      - MYSQL_ROOT_PASSWORD=akilan@123
+      - MYSQL_ROOT_PASSWORD=akilan@123 # setting DB password
     volumes:
-      - db_volume:/var/lib/mysql
+      - db_volume:/var/lib/mysql # store DB data in volume
 
 volumes:
   
