@@ -38,9 +38,8 @@ $result = $conn->query($sql);
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>Employee Data</th>
-				<th>First Name</th>
-				<th>Last Name</th>
+				<th>ID</th>
+				<th>Name</th>
 				<th>Role</th>
 			</tr>
 		</thead>
@@ -54,8 +53,7 @@ $result = $conn->query($sql);
 			?>
 			<tr>
 				<th scope="row"><?php echo $row["id"];?></th>
-				<td><?php echo $row["firstname"];?></td>
-				<td><?php echo $row["lastname"];?></td>
+				<td><?php echo $row["name"];?></td>
 				<td><?php echo $row["role"];?></td>
 			</tr>
 
