@@ -35,4 +35,8 @@
   * docker service ls - lists all the service
   * docker service ps $SERVICE_NAME - lists all the containers under the service
   * docker service update web-app --replicas 3 - Update service by increasing no of replicas
+  * docker stack - production grade compose YAML file
+  * docker secret - To deal with secret information inside swarm cluster
+  * Docker swarm has built in secret service but in docker-compose is possible via mounting secrent as a plain text
+  * docker-compose is only for development & testing not for production
   * 
