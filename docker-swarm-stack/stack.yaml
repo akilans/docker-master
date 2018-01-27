@@ -9,7 +9,7 @@ services:
     environment:
       - DB_HOST=mysql-db
       - DB_USER=root
-      - DB_PWD=run/secrets/mysql-pwd
+      - DB_PWD=/run/secrets/mysql-pwd
       - DB_NAME=employee
     secrets:
       - mysql-pwd
@@ -21,7 +21,7 @@ services:
     secrets:
       - mysql-pwd
     environment:
-      - MYSQL_ROOT_PASSWORD_FILE=run/secrets/mysql-pwd # setting DB password
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/mysql-pwd # setting DB password
     volumes:
       - db_volume:/var/lib/mysql # store DB data in volume
     deploy:
