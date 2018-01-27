@@ -1,4 +1,4 @@
-vesrion: '3.1'
+version: '3.4'
 
 services:
 
@@ -14,7 +14,7 @@ services:
     secrets:
       - mysql-pwd
     deploy:
-      - replicas: 1
+      replicas: 1
 
   mysql-db:
     image: akilan/mysql-employee:1
@@ -25,7 +25,7 @@ services:
     volumes:
       - db_volume:/var/lib/mysql # store DB data in volume
     deploy:
-      - replicas: 1
+      replicas: 1
 
 volumes:
   
