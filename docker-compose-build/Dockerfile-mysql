@@ -1,3 +1,2 @@
 FROM mysql
-ENV MYSQL_ROOT_PASSWORD=root
 ADD sql/initial.sql /docker-entrypoint-initdb.d/initial.sql #Populate DB with initial scripts
