@@ -38,5 +38,29 @@
   * docker stack - production grade compose YAML file
   * docker secret - To deal with secret information inside swarm cluster
   * Docker swarm has built in secret service but in docker-compose is possible via mounting secrent as a plain text
-  * docker-compose is only for development & testing not for production
-  * 
+  * docker-compose is only for development & testing not for production. Same compose file can be used for stack deploy & docker-compose [ docker-compose ignores "deploy" & stack ignores "build" ]
+  * echo "akilan@321" | docker secret create mysql-pwd -create docker secret
+  * docker service update --secret-rm="my_secret_data" $SERVICE_NAME -delete secret from service
+  * docker-compose works only with file based secret
+  * docker-compose - Read more about docker-compose.override.yaml, docker-compose.yaml & docker-compose config - CI/CD better solution 
+  * docker service update --force $SERVICE_NAME - when u add new nodes to swarm run this command to place containers to that new nodes. Cluster will become balanced
+  * healthcheck command is intresting - --health-cmd="pg_ispready -U postgres || exit 1" 
+
+# Docker Repo
+  * docker hub
+  * docker store - buy docker certified images from docker store
+  * docker cloud - web based swarm manager - build images from repository, run containers, add or remove node from AWS, AZURE, GCP etc
+  * docker private repo - download github.com/docker/distribution. Configure TSL/SSL so that docker pull/push image to that registry
+  * docker tag $IP_ADDRESS:$PORT/php-employee akilan/php-employee
+  * docker push $IP_ADDRESS:$PORT/php-employee 
+
+# Clean up
+  * docker system df - shows how much image, volumes occupies the space
+  * docker volume, image prune - clean up each separately
+  * docker system prune - cleans volume, image all at once
+
+Talk:
+
+  https://www.youtube.com/watch?v=ZdUcKtg84T8
+  https://dockercon.docker.com/watch/WdAeLaLuSCNQwEp61YVXUt
+  https://www.youtube.com/watch?v=Qsv-q8WbIZY

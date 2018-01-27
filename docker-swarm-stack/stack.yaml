@@ -1,3 +1,6 @@
+# Create PHP-MYSQL app
+# Create secret before running this stack - echo "akilan@321" | docker secret create mysql-pwd -
+# docker stack deploy -c stack.yaml web-app
 version: '3.4'
 
 services:
@@ -19,17 +22,20 @@ services:
     secrets:
       - mysql-pwd
     environment:
-      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/mysql-pwd # setting DB password
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/mysql-pwd # Fetch from secret & setting DB password
     volumes:
       - db_volume:/var/lib/mysql # store DB data in volume
     deploy:
       replicas: 1
+      placement:
+        constraints: [node.role == manager]
 
 volumes:
   
   db_volume:
 
-secrets:
+secrets: # mention mysql-pwd secret
 
   mysql-pwd:
     external: true
+    #file: ./password.txt #pass password via text file [ for docker-compose works only with file based secret ]
